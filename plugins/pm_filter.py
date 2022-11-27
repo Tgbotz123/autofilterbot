@@ -181,9 +181,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
         buttons = [[
             InlineKeyboardButton('➕ Add Me To Your Groups ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
-            InlineKeyboardButton('Update channel', callback_data='https://t.me/TEA_TIME_CINEMA')
+            InlineKeyboardButton('Update channel', url='https://t.me/+zh-0pXcnGco0MGFl')
             ],[
-            InlineKeyboardButton('Movie/Series Update', callback_data='https://t.me/+h77f3N9L8upkOTQ1')
+            InlineKeyboardButton('Movie/Series Update', url='https://t.me/+h77f3N9L8upkOTQ1')
+            ],[
+            InlineKeyboardButton('Main channel', url='https://t.me/+HzXlLRtirMM0MmZl')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
