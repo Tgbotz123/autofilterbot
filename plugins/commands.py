@@ -39,9 +39,9 @@ async def start(client, message):
         buttons = [[
             InlineKeyboardButton('➕ Add Me To Your Groups ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
-            InlineKeyboardButton('Update channel', callback_data='channel')
+            InlineKeyboardButton('Update channel', callback_data='https://t.me/TEA_TIME_CINEMA')
             ],[
-            InlineKeyboardButton('Movie/Series Update', callback_data='moviechannel')
+            InlineKeyboardButton('Movie/Series Update', callback_data='https://t.me/+h77f3N9L8upkOTQ1')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
@@ -83,9 +83,9 @@ async def start(client, message):
         buttons = [[
             InlineKeyboardButton('➕ Add Me To Your Groups ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
-            InlineKeyboardButton('Update channel', callback_data='channel')
+            InlineKeyboardButton('Update channel', callback_data='https://t.me/TEA_TIME_CINEMA')
             ],[
-            InlineKeyboardButton('Movie/Series Update', callback_data='moviechannel')
+            InlineKeyboardButton('Movie/Series Update', callback_data='https://t.me/+h77f3N9L8upkOTQ1')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
