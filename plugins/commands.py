@@ -103,7 +103,7 @@ async def start(client, message):
 @Client.on_message(filters.command('help') & filters.user(ADMINS))
 async def help(bot, message):
    await message.reply_text(
-       text=script.HELP_TXT(message.from_user.mention)
+       text=script.HELP_TXT.format(message.from_user.mention)
    )
 
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))
