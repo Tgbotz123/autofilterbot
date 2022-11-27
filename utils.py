@@ -72,7 +72,7 @@ def split_list(l, n):
     for i in range(0, len(l), n):
         yield l[i:i + n]  
 
-def get_file_id(msg: Message):
+def get_file_id(msg):
     if msg.media:
         for message_type in (
             "photo",
@@ -89,7 +89,7 @@ def get_file_id(msg: Message):
                 setattr(obj, "message_type", message_type)
                 return obj
 
-def extract_user(message: Message) -> Union[int, str]:
+def extract_user(message) -> Union[int, str]:
     """extracts the user from a message"""
     # https://github.com/SpEcHiDe/PyroGramBot/blob/f30e2cca12002121bad1982f68cd0ff9814ce027/pyrobot/helper_functions/extract_user.py#L7
     user_id = None
