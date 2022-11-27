@@ -1,15 +1,17 @@
 class script(object):
     
-    START_TXT = """HELLO {}
+    START_TXT = """<b>HELLO {}
 I'm a Telegram Complete  Group Auto Movies BOT.  ADD me in your Group and Make ADMIN.
 
 I will Give any Movies your members Asks.
 
-Send me MovieName Year"""
+Send me MovieName Year</b>"""
     
     HELP_TXT = """𝙷𝙴𝚈 {}
 𝙷𝙴𝚁𝙴 𝙸𝚂 𝚃𝙷𝙴 𝙷𝙴𝙻𝙿 𝙵𝙾𝚁 𝙼𝚈 𝙲𝙾𝙼𝙼𝙰𝙽𝙳𝚂.\n
 <b>Commands and Usage:</b>
+• /id - <code>get id of a specified user.</code> 
+• /info  - <code>get information about a user.</code>
 • /logs - <code>to get the rescent errors</code>
 • /stats - <code>to get status of files in db.</code>
 • /delete - <code>to delete a specific file from db.</code>
