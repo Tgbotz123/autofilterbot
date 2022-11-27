@@ -192,7 +192,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             parse_mode=enums.ParseMode.HTML
         ) 
 
-@Client.on_message(filters.group & filters.text & filters.incoming)
+@Client.on_message(filters.text & filters.incoming)
 async def auto_filter(client, message):
     search = message.text
     if search.startswith("/"): return  # ignore commands
