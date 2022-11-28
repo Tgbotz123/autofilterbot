@@ -43,9 +43,9 @@ async def save_group(bot, message):
             text=f"<b>Thankyou For Adding Me In {message.chat.title} ❣️\n\nIf you have any questions & doubts about using me contact support.</b>",
             reply_markup=reply_markup)
     else:
-        if settings["welcome"]:
+        if MELCOW_NEW_USERS:
             for u in message.new_chat_members:
-                if MELCOW_NEW_USERS:
+                if temp.MELCOW['welcome']:
                     try:
                         await (temp.MELCOW['welcome']).delete()
                     except:
