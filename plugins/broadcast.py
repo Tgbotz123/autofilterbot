@@ -1,15 +1,14 @@
-
-from pyrogram import Client, filters
-import datetime
 import time
-from database.users_chats_db import db
+import datetime 
+import asyncio 
 from info import ADMINS
+from pyrogram import Client, filters 
 from utils import broadcast_messages
-import asyncio
-        
+from database.users_chats_db import db
+from utils import broadcast_messages
+
 @Client.on_message(filters.command("broadcast") & filters.user(ADMINS) & filters.reply)
-# https://t.me/GetTGLink/4178
-async def verupikkals(bot, message):
+async def broadcast(bot, message):
     users = await db.get_all_users()
     b_msg = message.reply_to_message
     sts = await message.reply_text(
