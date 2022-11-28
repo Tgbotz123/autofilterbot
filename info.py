@@ -10,7 +10,7 @@ def is_enabled(value, default):
     else:
         return default
 #server
-PORT = os.environ.get("PORT", "8080") 
+PORT = environ.get("PORT", "8080") 
 
 # Bot information
 API_ID = int(environ['API_ID'])
