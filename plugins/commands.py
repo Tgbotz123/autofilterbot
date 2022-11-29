@@ -98,6 +98,27 @@ async def start(client, message):
             parse_mode=enums.ParseMode.HTML
         )
         return 
+    file_id = message.command[1]
+    files_ = await get_file_details(file_id)
+    if not files_:
+        return await message.reply('No such file exist.')
+    files = files_[0]
+    title = files.file_name
+    size=get_size(files.file_size)
+    f_caption=files.caption
+    if CUSTOM_FILE_CAPTION:
+        try:
+            f_caption=CUSTOM_FILE_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='' if f_caption is None else f_caption)
+        except Exception as e:
+            logger.exception(e)
+            f_caption=f_caption
+    if f_caption is None:
+        f_caption = f"<b>{files.file_name}</b>"
+    await client.send_cached_media(
+        chat_id=message.from_user.id,
+        file_id=file_id,
+        caption=f_caption,
+        )
     
 @Client.on_message(filters.command('help') & filters.user(ADMINS))
 async def help(bot, message):
