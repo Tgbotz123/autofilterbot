@@ -18,7 +18,6 @@ async def save_group(bot, message):
             await bot.send_message(LOG_CHANNEL, script.LOG_TEXT_G.format(message.chat.title, message.chat.id, total, r_j))       
             await db.add_chat(message.chat.id, message.chat.title)
         if message.chat.id in temp.BANNED_CHATS:
-            # Inspired from a boat of a banana tree
             buttons = [[
                 InlineKeyboardButton('Support', url='https://t.me/+zh-0pXcnGco0MGFl')
             ]]
@@ -45,7 +44,7 @@ async def save_group(bot, message):
     else:
         if MELCOW_NEW_USERS:
             for u in message.new_chat_members:
-                if temp.MELCOW['welcome']:
+                if temp.MELCOW.get('welcome'):
                     try:
                         await (temp.MELCOW['welcome']).delete()
                     except:
