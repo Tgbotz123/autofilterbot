@@ -1,10 +1,9 @@
 import asyncio
 import re
 import ast
-import math
-from pyrogram.errors.exceptions.bad_request_400 import MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
+import math  
 from Script import script
-import pyrogram
+from pyrogram.enums import ChatType
 from info import ADMINS, AUTH_CHANNEL, CUSTOM_FILE_CAPTION, P_TTI_SHOW_OFF, SINGLE_BUTTON
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram import Client, filters, enums
@@ -126,7 +125,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             if AUTH_CHANNEL and not await is_subscribed(client, query):
                 await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
                 return
-            elif P_TTI_SHOW_OFF:
+            elif P_TTI_SHOW_OFF and message.chat.type != ChatType.PRIVATE:
                 await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
                 return
             else:
@@ -135,7 +134,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     file_id=file_id,
                     caption=f_caption
                 )
-               # await query.answer('Check PM, I have sent files in pm', show_alert=True)
+               if message.chat.type != ChatType.PRIVATE:
+                  await query.answer('Check PM, I have sent files in pm', show_alert=True)
         except UserIsBlocked:
             await query.answer('Unblock the bot mahn !', show_alert=True)
         except PeerIdInvalid:
