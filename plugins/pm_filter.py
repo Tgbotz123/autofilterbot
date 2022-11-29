@@ -125,7 +125,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             if AUTH_CHANNEL and not await is_subscribed(client, query):
                 await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
                 return
-            elif P_TTI_SHOW_OFF and message.chat.type != ChatType.PRIVATE:
+            elif P_TTI_SHOW_OFF and query.message.chat.type != ChatType.PRIVATE:
                 await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
                 return
             else:
@@ -134,7 +134,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     file_id=file_id,
                     caption=f_caption
                 )
-                if message.chat.type == ChatType.PRIVATE:
+                if query.message.chat.type == ChatType.PRIVATE:
                    return await query.answer()
                 await query.answer('Check PM, I have sent files in pm', show_alert=True)
         except UserIsBlocked:
